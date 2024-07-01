@@ -7,7 +7,7 @@ import { CardLaunchComponent } from '../card-launch/card-launch.component';
   selector: 'launches',
   standalone: true,
   imports: [CardLaunchComponent],
-  templateUrl: './launches.component.html'
+  templateUrl: './launches.component.html',
 })
 export class LaunchesComponent implements OnInit {
   private spacexService = inject(SpacexService);
@@ -15,9 +15,8 @@ export class LaunchesComponent implements OnInit {
   launches: Doc[] = [];
 
   ngOnInit(): void {
-    this.spacexService.getLaunches().subscribe(launches => {
+    this.spacexService.getLaunches().subscribe((launches) => {
       this.launches = launches;
     });
   }
-
 }
