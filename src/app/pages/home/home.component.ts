@@ -7,8 +7,6 @@ import { LaunchesComponent } from '../../shared/components/launches/launches.com
   selector: 'home',
   standalone: true,
   imports: [RouterOutlet, LayoutComponent, LaunchesComponent],
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}
