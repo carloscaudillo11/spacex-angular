@@ -5,8 +5,6 @@ import { HeaderButtonComponent } from '../../../layouts/header-button/header-but
   selector: 'app-header',
   standalone: true,
   imports: [HeaderButtonComponent],
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}

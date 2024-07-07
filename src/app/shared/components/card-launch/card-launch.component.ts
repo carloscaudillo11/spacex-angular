@@ -1,26 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
 
 @Component({
   selector: 'card-launch',
   standalone: true,
   imports: [RouterLink, CommonModule],
-  templateUrl: './card-launch.component.html'
+  templateUrl: './card-launch.component.html',
 })
-export class CardLaunchComponent implements OnChanges {
-  @Input() id = "";
-  @Input() img = "";
-  @Input() success = false;
-  @Input() flightNumber = 0;
-  @Input() details: string | null = "";
+export class CardLaunchComponent {
+  id = input('');
+  img = input('');
+  success = input(false);
+  flightNumber = input(0);
+  details = input<string | null>('');
 
-  successText: string = "";
+  successText = computed(() => (this.success() ? 'success' : 'failed'));
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['success']) {
-      this.successText = this.success ? 'success' : 'failed';
-    }
-  }
+  classList = computed(() => ({
+    'text-xs': true,
+    'font-semibold': true,
+    'mr-2': true,
+    'px-2.5': true,
+    'py-0.5': true,
+    'rounded': true,
+    'bg-green-400': this.success(),
+    'text-green-900': this.success(),
+    'bg-red-400': !this.success(),
+    'text-red-900': !this.success(),
+  }));
 }

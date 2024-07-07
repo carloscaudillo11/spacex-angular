@@ -1,24 +1,14 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LayoutComponent } from '../../layouts/layout/layout.component';
 import { RouterOutlet } from '@angular/router';
-import { Doc } from '../../core/types';
-import { SpacexService } from '../../core/services/spacex.service';
+import { LaunchComponent } from '../../shared/components/launch/launch.component';
 
 @Component({
   selector: 'app-launch-details',
   standalone: true,
-  imports: [LayoutComponent, RouterOutlet],
+  imports: [LayoutComponent, RouterOutlet, LaunchComponent],
   templateUrl: './launch-details.component.html',
 })
-export class LaunchDetailsComponent implements OnInit {
-  @Input('id') launchId!: string;
-  private spacexService = inject(SpacexService);
-
-  launch: Doc = {} as Doc;
-
-  ngOnInit(): void {
-    this.spacexService.getLauncheById(this.launchId).subscribe((launch) => {
-      this.launch = launch;
-    });
-  }
+export class LaunchDetailsComponent {
+  @Input('id') id!: string;
 }

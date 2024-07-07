@@ -5,8 +5,6 @@ import { HeaderComponent } from '../../shared/components/header/header.component
   selector: 'layout',
   standalone: true,
   imports: [HeaderComponent],
-  templateUrl: './layout.component.html'
+  templateUrl: './layout.component.html',
 })
-export class LayoutComponent {
-
-}
+export class LayoutComponent {}

@@ -1,36 +1,27 @@
 <a
-  routerLink="/launches/{{ id }}"
+  routerLink="/launches/{{ id() }}"
   class="rounded-lg h-full border shadow-md bg-gray-800 border-gray-700 hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col"
 >
   <picture class="flex justify-center p-4">
-    <img [src]="img" alt="Path for launch {{ id }}" class="mb-5 rounded-lg" />
+    <img
+      [src]="img()"
+      alt="Path for launch {{ id() }}"
+      class="mb-5 rounded-lg"
+    />
   </picture>
 
   <header class="p-4 flex-grow">
-    <span
-      [ngClass]="{
-        'text-xs': true,
-        'font-semibold': true,
-        'mr-2': true,
-        'px-2.5': true,
-        'py-0.5': true,
-        rounded: true,
-        'bg-green-400': success,
-        'text-green-900': success,
-        'bg-red-400': !success,
-        'text-red-900': !success
-      }"
-    >
-      {{ successText }}
+    <span [ngClass]="classList()">
+      {{ successText() }}
     </span>
     <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
-      Flight #{{ flightNumber }}
+      Flight #{{ flightNumber() }}
     </h2>
     <p class="mb-4 font-light text-gray-400">
       {{
-        details !== null && details.length > 100
-          ? details.substring(0, 100) + "..."
-          : details
+        details() !== null && details()!.length > 100
+          ? details()!.substring(0, 100) + "..."
+          : details()
       }}
     </p>
   </header>
