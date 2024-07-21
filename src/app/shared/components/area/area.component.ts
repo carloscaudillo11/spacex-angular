@@ -1,18 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexTitleSubtitle,
-  NgApexchartsModule,
-} from 'ng-apexcharts';
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  title: ApexTitleSubtitle;
-};
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChartOptions } from '../../../core/types';
 
 @Component({
   selector: 'app-chart',
@@ -21,7 +9,7 @@ export type ChartOptions = {
   templateUrl: './area.component.html',
 })
 export class AreaComponent {
-  public chartOptions: ChartOptions;
+  chartOptions: ChartOptions;
   constructor() {
     this.chartOptions = {
       series: [
