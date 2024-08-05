@@ -4,8 +4,7 @@ import { LayoutComponent } from '../../layouts/layout/layout.component';
 import { map, Observable } from 'rxjs';
 import { Doc } from '../../core/types';
 import { AsyncPipe } from '@angular/common';
-import { CardLaunchComponent } from '../../shared/components/card-launch/card-launch.component';
-import { AreaComponent } from '../../shared/components/area/area.component';
+import { CardLaunchesComponent } from '../../shared/components/card-launches/card-launches.component';
 
 @Component({
   selector: 'home',
@@ -14,8 +13,7 @@ import { AreaComponent } from '../../shared/components/area/area.component';
     RouterOutlet,
     LayoutComponent,
     AsyncPipe,
-    CardLaunchComponent,
-    AreaComponent,
+    CardLaunchesComponent,
   ],
   templateUrl: './home.component.html',
 })

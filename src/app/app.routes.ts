@@ -21,6 +21,6 @@ export const routes: Routes = [
     title: 'Detalles de lanzamiento',
     resolve: {
       launch: LaunchResolver,
-    },
+    }
   },
 ];

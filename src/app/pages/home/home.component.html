@@ -1,23 +1,17 @@
 <layout>
-    @if(data$ | async; as launches) {
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      @for (launch of launches; track launch.id) {
-      <card-launch
-        [id]="launch.id"
-        [img]="launch.links.patch.small"
-        [success]="launch.success"
-        [flightNumber]="launch.flight_number"
-        [details]="launch.details"
-      />
-      }
-    </div>
+  @if(data$ | async; as launches) {
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    @for (launch of launches; track launch.id) {
+    <card-launches
+      [id]="launch.id"
+      [img]="launch.links.patch.small"
+      [success]="launch.success"
+      [flightNumber]="launch.flight_number"
+      [details]="launch.details"
+    />
     }
-    
-    <div class="pt-10">
-      @defer{
-        <app-chart />
-      }
-    </div>
-  </layout>
-  
-  <router-outlet />
+  </div>
+  }
+</layout>
+
+<router-outlet />
